@@ -121,7 +121,7 @@ class TributeRange {
     replaceTriggerText(text, requireLeadingSpace, hasTrailingSpace, originalEvent, item) {
         let context = this.tribute.current
         // TODO: this may not be necessary anymore as we are using mouseup instead of click
-        // this.resetSelection(context.element, context.selectedPath, context.selectedOffset)
+        this.resetSelection(context.element, context.selectedPath, context.selectedOffset);
 
         let info = this.getTriggerInfo(true, hasTrailingSpace, requireLeadingSpace, this.tribute.allowSpaces)
 
