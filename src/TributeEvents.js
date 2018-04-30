@@ -29,8 +29,8 @@ class TributeEvents {
     bind(element) {
         element.addEventListener('keydown',
             this.keydown.bind(element, this), false)
-        element.addEventListener('keyup',
-            this.keyup.bind(element, this), false)
+        //element.addEventListener('keyup',
+        //    this.keyup.bind(element, this), false)
         element.addEventListener('input',
             this.input.bind(element, this), false)
     }
