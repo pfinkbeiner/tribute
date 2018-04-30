@@ -31,10 +31,23 @@ class TributeEvents {
             this.keydown.bind(element, this), false)
         //element.addEventListener('keyup',
         //    this.keyup.bind(element, this), false)
+				element.addEventListener('keyup',
+						this.keyupDeletion.bind(element, this), false);
         element.addEventListener('input',
             this.input.bind(element, this), false)
     }
-
+		keyupDeletion(instance, event) {
+			if (event.keyCode === 8 && instance.tribute.currentMentionTextSnapshot) {
+				var element = this;
+				instance.commandEvent = false;
+				TributeEvents.keys().forEach(function (o) {
+					if (o.key === event.keyCode) {
+						instance.commandEvent = true;
+						instance.callbacks()[o.value.toLowerCase()](event, element);
+					}
+				});
+			}
+		}
     keydown(instance, event) {
         if (instance.shouldDeactivate(event)) {
             instance.tribute.isActive = false
